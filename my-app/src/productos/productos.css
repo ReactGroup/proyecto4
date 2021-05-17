@@ -6,7 +6,25 @@
     height: 480px;
     background-color: blue;
 }
+/* ---- FILTROS ----- */
+.filter-container{
+    max-width: 1440px;
+    display: flex;
+    float: right;
+    padding: 30px 20px;
+}
 
+.filter-container form select{
+    margin: 0 20px;
+    padding: 5px 20px;
+    font-size: 10px;
+}
+
+.filter-container button{
+
+}
+
+/* ---- PRODUCTOS ----- */
 .product-container{
     max-width: 1440px;
     display: flex;
@@ -14,6 +32,7 @@
     margin: 0 auto;
     justify-content: space-between;
     padding: 0 20px;
+    width: 100%;
 }
 
 .each-product{
@@ -60,4 +79,19 @@
     padding-left: 10px;
     margin: 0;
     text-decoration: none;
+}
+
+/* ---- PAGINADOR ----- */
+.pagination{
+display: flex;
+width: 100%;
+justify-content: center;
+align-items: center;
+text-decoration: none;
+color:  #616161;
+padding: 1.5rem 0 2rem;
+}
+
+.pagination img{
+padding-left: 10px;
 }

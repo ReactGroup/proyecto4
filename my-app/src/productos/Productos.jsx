@@ -8,8 +8,21 @@ function Productos(){
             <div className="portada">
                 {/* <img src="" alt=""/> */}
             </div>
-            <div>
-               {/* filtros */} 
+            <div className="filter-container">
+               {/* filtros */}
+               <form action="">
+                    <select name="Categorias" id="">
+                        <option value="">category</option>
+                    </select>
+                    <select name="Ordenar por precio" id="">
+                        <option value="">Más bajo primero</option>
+                        <option value="">Más alto primero</option>
+                    </select>
+                    <button>
+                        <img src="" alt="erase"/>
+                        Borrar filtros
+                    </button>
+                </form>
             </div>
             <div className="product-container">
                 {/* for each productos */} 
@@ -21,7 +34,14 @@ function Productos(){
                     <h5 className="category">Categoria</h5>
                     <h6 className="name-product">Producto</h6>
                 </a>
+                {/* for each productos */} 
             </div>
+            {/* paginador */} 
+            <a className="pagination" href="" target="_self">
+                Página Siguiente
+                <img src="" alt="next"/>
+            </a>
+            {/* paginador */} 
         </div>
     );
 }
