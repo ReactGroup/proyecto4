@@ -34,6 +34,62 @@ function Productos(){
                     <h5 className="category">Categoria</h5>
                     <h6 className="name-product">Producto</h6>
                 </a>
+                <a className="each-product" href="#dinamic" target="_self">
+                    <div className="image-container">
+                        <div src="" alt="#product-name" className="image-product"/>
+                        <div src="icon ? disponible:a-partir-x-coins" alt="" className="available-price"/>
+                    </div>
+                    <h5 className="category">Categoria</h5>
+                    <h6 className="name-product">Producto</h6>
+                </a>
+                <a className="each-product" href="#dinamic" target="_self">
+                    <div className="image-container">
+                        <div src="" alt="#product-name" className="image-product"/>
+                        <div src="icon ? disponible:a-partir-x-coins" alt="" className="available-price"/>
+                    </div>
+                    <h5 className="category">Categoria</h5>
+                    <h6 className="name-product">Producto</h6>
+                </a>
+                <a className="each-product" href="#dinamic" target="_self">
+                    <div className="image-container">
+                        <div src="" alt="#product-name" className="image-product"/>
+                        <div src="icon ? disponible:a-partir-x-coins" alt="" className="available-price"/>
+                    </div>
+                    <h5 className="category">Categoria</h5>
+                    <h6 className="name-product">Producto</h6>
+                </a>
+                <a className="each-product" href="#dinamic" target="_self">
+                    <div className="image-container">
+                        <div src="" alt="#product-name" className="image-product"/>
+                        <div src="icon ? disponible:a-partir-x-coins" alt="" className="available-price"/>
+                    </div>
+                    <h5 className="category">Categoria</h5>
+                    <h6 className="name-product">Producto</h6>
+                </a>
+                <a className="each-product" href="#dinamic" target="_self">
+                    <div className="image-container">
+                        <div src="" alt="#product-name" className="image-product"/>
+                        <div src="icon ? disponible:a-partir-x-coins" alt="" className="available-price"/>
+                    </div>
+                    <h5 className="category">Categoria</h5>
+                    <h6 className="name-product">Producto</h6>
+                </a>
+                <a className="each-product" href="#dinamic" target="_self">
+                    <div className="image-container">
+                        <div src="" alt="#product-name" className="image-product"/>
+                        <div src="icon ? disponible:a-partir-x-coins" alt="" className="available-price"/>
+                    </div>
+                    <h5 className="category">Categoria</h5>
+                    <h6 className="name-product">Producto</h6>
+                </a>
+                <a className="each-product" href="#dinamic" target="_self">
+                    <div className="image-container">
+                        <div src="" alt="#product-name" className="image-product"/>
+                        <div src="icon ? disponible:a-partir-x-coins" alt="" className="available-price"/>
+                    </div>
+                    <h5 className="category">Categoria</h5>
+                    <h6 className="name-product">Producto</h6>
+                </a>
                 {/* for each productos */} 
             </div>
             {/* paginador */} 
