@@ -1,6 +1,7 @@
 // fav icon 
 import logo from './logo.svg';
 import './App.css';
+import Productos from './productos/Productos'
 import { Route, Link } from 'react-router-dom';
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
         </header>
 
         <Route exact path="/">
-          <h5> home</h5>
+          <Productos/>
         </Route>
         <Route exact path="/mas-creditos">
           <h5> mas creditos</h5>
