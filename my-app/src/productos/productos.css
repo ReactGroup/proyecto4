@@ -10,8 +10,9 @@
 .filter-container{
     max-width: 1440px;
     display: flex;
-    float: right;
+    justify-content: flex-end;
     padding: 30px 20px;
+    margin: 0 auto;
 }
 
 .filter-container form select{
