@@ -8,31 +8,34 @@ function App() {
   return (
     <div className="App">
       <header>
-        <img src="" alt=""/>
-        <nav className="principal-header">
-          <ul>
-            <li>
-              <Link to="/">Inicio</Link>
-              </li> 
+        <div className="max-1440">
+          <img src="" alt="Logo"/>
+          <nav className="principal-header">
+            <ul>
               <li>
-              <Link to="/mas-creditos">Más Creditos</Link>
-              </li> 
-              <li>
-              <Link to="/historial">Historial</Link>
-              </li>
-              <li>
-              <Link to="/producto">producto especifico</Link>
-              </li> 
-          </ul>
-          <div>
-            <img src="" alt=""/>
-            <div>
+                <Link to="/">Inicio</Link>
+                </li> 
+                <li>
+                <Link to="/mas-creditos">Más Creditos</Link>
+                </li> 
+                <li>
+                <Link to="/historial">Historial</Link>
+                </li>
+                <li>
+                <Link to="/producto">producto especifico</Link>
+                </li> 
+            </ul>
+            <div className="profile">
+              <h4>Nombre usuario</h4>
               <img src="" alt=""/>
-              <p>Coins</p>
+              <div className="coins-amount">
+                <div></div>
+                <p>1231</p>
+              </div>
             </div>
-          </div>
-       </nav>  
-        </header>
+          </nav>  
+        </div>
+      </header>
 
         <Route exact path="/">
           <Productos/>
