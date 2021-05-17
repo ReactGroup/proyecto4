@@ -1,0 +1,78 @@
+.item{
+    background-color: #F2F2F2;
+    margin-top: 70px;
+}
+
+/* ---- ARTICULO ----- */
+.item-container{
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+}
+.picture{
+    background-color: tomato;
+    width: 50%;
+    height: 300px;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    margin: 3rem 0 3rem 3rem;
+    border-radius: 10px;
+}
+
+.info-container{
+    width: 50%;
+    margin: 3rem 3rem 3rem 1.5rem ;
+    padding: 1.5rem;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.info-container h2{
+    color: #616161;
+    font-size: 28px;
+    margin: 0;
+}
+
+.info-container h4{
+    color: #A3A3A3;
+    font-size: 18px;
+    margin: 0;
+}
+
+.info-container h5{
+    color: #616161;
+    font-size: 18px;
+    margin: 0;
+    padding-top: 1rem;
+}
+
+.info-container h5 img{
+    margin-left: 3px;
+}
+
+.info-container div button{
+ margin-top: 3rem;
+ font-size: 14px;
+ padding: 10px 20px ;
+}
+
+
+/* ---- OTROS ----- */
+.similar-container{
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+}
+
+.similar-title{
+    color: #000;
+    font-size: 20px;
+    margin: 0;
+    padding: 1rem 0 0.5rem 30px;
+}

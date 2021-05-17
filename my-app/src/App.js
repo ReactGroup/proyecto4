@@ -2,6 +2,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Productos from './productos/Productos'
+import Creditos from './mas-creditos/Creditos'
+import Item from './item/Item'
 import { Route, Link } from 'react-router-dom';
 
 function App() {
@@ -41,13 +43,13 @@ function App() {
           <Productos/>
         </Route>
         <Route exact path="/mas-creditos">
-          <h5> mas creditos</h5>
+          <Creditos />
         </Route>
         <Route exact path="/historial">
           <h5> historial</h5>
         </Route>
         <Route exact path="/producto">
-          <h5>producto especifico</h5>
+          <Item />
         </Route>
       <footer>
         <p>Hecho por Tomás Sánchez Soria</p>

@@ -1,5 +1,6 @@
 .productos{
     background-color: #F2F2F2;
+    margin-top: 70px;
 }
 
 .portada{
@@ -29,7 +30,6 @@
     margin: 0 auto;
     justify-content: space-between;
     padding: 0 20px;
-    width: 100%;
 }
 
 .each-product{
