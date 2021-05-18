@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Productos from './productos/Productos'
 import Creditos from './mas-creditos/Creditos'
+import Historial from './historial/Historial'
 import Item from './item/Item'
 import { Route, Link } from 'react-router-dom';
 
@@ -46,7 +47,7 @@ function App() {
           <Creditos />
         </Route>
         <Route exact path="/historial">
-          <h5> historial</h5>
+          <Historial />
         </Route>
         <Route exact path="/producto">
           <Item />

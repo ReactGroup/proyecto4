@@ -1,0 +1,42 @@
+.historial{
+    background-color: #F2F2F2;
+    margin-top: 70px;
+    min-height: 70vh;
+}
+
+.historial-container{
+    padding: 5em;
+    max-width: 1440px;
+}
+
+/* ---- TEXTO DESCRIPTIVO ----- */
+.history-product{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 4px rgb(0 0 0 / 10%);
+    margin-bottom: 1em;
+    border-radius: 10px;
+}
+
+.history-img{
+    height: 50px;
+    width: 50px;
+    margin-right: 20px;
+}
+
+.history-product h3{
+    color: #616161;
+    font-size: 18px;
+    margin: 0;
+}
+
+.history-product p{
+    color: #616161;
+    font-size: 14px;
+    margin: 0;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 auto;
+}
