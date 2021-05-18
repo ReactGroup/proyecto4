@@ -1,9 +1,82 @@
 .credito{
     background-color: #F2F2F2;
     margin-top: 70px;
-    height: 500px;
+    min-height: 70vh;
+}
+
+.container-credit {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 300px;
     display: flex;
+    padding: 8em 0 5em;
+}
+
+/* ---- TEXTO DESCRIPTIVO ----- */
+.text-container{
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+}
+
+.text-container h3{
+    color: #616161;
+    font-size: 28px;
+    margin: 0;
+}
+
+.text-container h5{
+    color: #616161;
+    font-size: 18px;
+    margin: 0;
+}
+
+.text-container p{
+    color: #A3A3A3;
+    font-size: px;
+    margin: 0;
+    padding-top: 1rem;
+}
+
+
+/* ---- FORMULARIO ----- */
+.form-container{
+    margin: 3rem;
+}
+
+form{
+    height: 200px;
+    width: 350px;
+    border-radius: 10px;
+    background: white;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    
+    justify-content: center;
+}
+
+.input{
+    width: 80%;
+    padding: 5px;
+}
+
+.user{
+    margin-bottom: 1em;
+}
+
+.btn-container{
+    margin: 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.btn-container button{
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 20.5px;
+    border: 0px solid transparent;
+
 }
