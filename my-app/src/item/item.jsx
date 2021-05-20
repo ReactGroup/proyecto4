@@ -1,5 +1,7 @@
 import './item.css';
 import React from 'react'
+import coin from '../images/icons/coin.svg'
+
 
 function Item(){
     return(
@@ -9,7 +11,7 @@ function Item(){
                 <div className="info-container">
                     <h4>Category</h4>
                     <h2>Nombre</h2>
-                    <h5>Valor: <span>121221</span><img src="" alt="coin"/></h5>
+                    <h5>Valor: <img src={coin} alt="coin"/><span> 121221</span></h5>
                     <div>
                         <button>Canjear
                         <img src="" alt="Buy"/>

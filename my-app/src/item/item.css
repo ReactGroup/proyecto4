@@ -49,10 +49,12 @@
     font-size: 18px;
     margin: 0;
     padding-top: 1rem;
+    display: flex;
+    align-items: center;
 }
 
 .info-container h5 img{
-    margin-left: 3px;
+    margin-left: 15px;
 }
 
 .info-container div button{

@@ -1,12 +1,15 @@
 import './productos.css';
 import React from 'react'
+import portada from '../images/header-x1.png';
+import next from '../images/icons/arrow-right.svg'
+
 //import { Route, Link } from 'react-router-dom';
 
 function Productos(){
     return (
         <div className="productos">
             <div className="portada">
-                {/* <img src="" alt=""/> */}
+                <img src={portada} alt="portada"/>
             </div>
             <div className="filter-container">
                {/* filtros */}
@@ -26,7 +29,7 @@ function Productos(){
             </div>
             <div className="product-container">
                 {/* for each productos */} 
-                <a className="each-product" href="#dinamic" target="_self">
+                <a className="each-product" href="/{nombre-producto}" target="_self">
                     <div className="image-container">
                         <div src="" alt="#product-name" className="image-product"/>
                         <div src="icon ? disponible:a-partir-x-coins" alt="" className="available-price"/>
@@ -38,8 +41,8 @@ function Productos(){
             </div>
             {/* paginador */} 
             <a className="pagination" href="" target="_self">
-                Página Siguiente
-                <img src="" alt="next"/>
+                Siguiente
+                <img src={next} alt="next"/>
             </a>
             {/* paginador */} 
         </div>

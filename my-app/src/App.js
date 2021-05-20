@@ -1,11 +1,14 @@
 // fav icon 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Productos from './productos/Productos'
 import Creditos from './mas-creditos/Creditos'
 import Historial from './historial/Historial'
 import Item from './item/Item'
 import { Route, Link } from 'react-router-dom';
+import coin from './images/icons/coin.svg'
+
+
 
 function App() {
   return (
@@ -32,7 +35,7 @@ function App() {
               <h4>Nombre usuario</h4>
               <img src="" alt=""/>
               <div className="coins-amount">
-                <div></div>
+                <img src={coin} alt="Coin"/>
                 <p>1231</p>
               </div>
             </div>
