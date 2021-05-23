@@ -1,11 +1,35 @@
 import './productos.css';
 import React from 'react'
+// Hooks, roots, etc
+import { Route, Link } from 'react-router-dom';
+import { useState, useEffect} from "react";
+
+//imagenes
 import portada from '../images/header-x1.png';
 import next from '../images/icons/arrow-right.svg'
 
-//import { Route, Link } from 'react-router-dom';
-
 function Productos(){
+
+    let [productsItems, setProductsItems] = useState([])
+
+    useEffect(()=>{
+        let api = fetch("https://coding-challenge-api.aerolab.co/products",{
+            headers: {
+                "Content-type": "application/json",
+                "Accept" : "application/json",
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWRkOWU5OTQ0NGZlNDAwNmRhOTkyNGQiLCJpYXQiOjE1OTE1ODIzNjF9.-f40dyUIGFsBSB_PTeBGdSLI58I21-QBJNi9wkODcKk",
+            }
+        });
+        api 
+        .then((response) => {
+        return response.json();
+        })
+        .then((results) => {
+            setProductsItems(results);
+        })
+    },[]);
+
+
     return (
         <div className="productos">
             <div className="portada">
@@ -28,16 +52,15 @@ function Productos(){
                 </form>
             </div>
             <div className="product-container">
-                {/* for each productos */} 
-                <a className="each-product" href="/{nombre-producto}" target="_self">
-                    <div className="image-container">
-                        <div src="" alt="#product-name" className="image-product"/>
-                        <div src="icon ? disponible:a-partir-x-coins" alt="" className="available-price"/>
-                    </div>
-                    <h5 className="category">Categoria</h5>
-                    <h6 className="name-product">Producto</h6>
-                </a>
-                {/* for each productos */} 
+                {productsItems.map((product) =>
+                    <a className="each-product" href="producto/{product.id}" target="_self" key={product.id}>
+                        <div className="image-container">
+                            <img src={product.img.url} alt={product.name} className="image-product"/>
+                        </div>
+                        <h5 className="category">{product.category}</h5>
+                        <h6 className="name-product">{product.name}</h6>
+                    </a>
+                )}
             </div>
             {/* paginador */} 
             <a className="pagination" href="" target="_self">
