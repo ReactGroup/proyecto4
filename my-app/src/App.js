@@ -6,8 +6,25 @@ import Creditos from './mas-creditos/Creditos'
 import Historial from './historial/Historial'
 import Item from './item/Item'
 import { Route, Link } from 'react-router-dom';
-import coin from './images/icons/coin.svg'
+import coin from './images/icons/coin.svg';
+// get our fontawesome imports
+//import { faGithub } from "@fortawesome/free-solid-svg-icons";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+
+
+fetch("https://coding-challenge-api.aerolab.co/user/me",{
+  headers: {
+    "Content-type": "application/json",
+    "Accept" : "application/json",
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWRkOWU5OTQ0NGZlNDAwNmRhOTkyNGQiLCJpYXQiOjE1OTE1ODIzNjF9.-f40dyUIGFsBSB_PTeBGdSLI58I21-QBJNi9wkODcKk",
+  }
+})
+.then((response)=>response.json())
+.then((json)=>
+console.log(json)
+
+);
 
 
 function App() {
@@ -65,7 +82,7 @@ function App() {
             <img src="" alt="LinkedIn"/>
           </a>
           <a href="https://github.com/tosaso/" target="_blank">
-            <img src="" alt="Gitub"/>
+            <img src="" alt="Github"/>
           </a>
         </div>
       </footer>
