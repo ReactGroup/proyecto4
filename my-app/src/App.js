@@ -1,34 +1,47 @@
 // fav icon 
 // import logo from './logo.svg';
 import './App.css';
+
+// Componentes
 import Productos from './productos/Productos'
 import Creditos from './mas-creditos/Creditos'
 import Historial from './historial/Historial'
 import Item from './item/Item'
 import Footer from './footer/Footer'
+
+// Hooks, roots, etc
 import { Route, Link } from 'react-router-dom';
+import { useState, useEffect} from "react";
+
+//imagenes
 import coin from './images/icons/coin.svg';
+
 // get our fontawesome imports
 //import { faGithub } from "@fortawesome/free-solid-svg-icons";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
-
-fetch("https://coding-challenge-api.aerolab.co/user/me",{
-  headers: {
-    "Content-type": "application/json",
-    "Accept" : "application/json",
-    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWRkOWU5OTQ0NGZlNDAwNmRhOTkyNGQiLCJpYXQiOjE1OTE1ODIzNjF9.-f40dyUIGFsBSB_PTeBGdSLI58I21-QBJNi9wkODcKk",
-  }
-})
-.then((response)=>response.json())
-.then((json)=>
-console.log(json)
-
-);
-
-
 function App() {
+
+  const [userData, setUserData] = useState([])
+
+  useEffect(() =>{
+    let api = fetch("https://coding-challenge-api.aerolab.co/user/me",{
+      headers: {
+        "Content-type": "application/json",
+        "Accept" : "application/json",
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWRkOWU5OTQ0NGZlNDAwNmRhOTkyNGQiLCJpYXQiOjE1OTE1ODIzNjF9.-f40dyUIGFsBSB_PTeBGdSLI58I21-QBJNi9wkODcKk",
+      }
+    });
+    api 
+    .then((response) => {
+      return response.json();
+    })
+    .then((results) => {
+      setUserData(results);
+    })
+  });
+
+
   return (
     <div className="App">
       <header>
@@ -50,11 +63,11 @@ function App() {
                 </li> 
             </ul>
             <div className="profile">
-              <h4>Nombre usuario</h4>
+              <h4>{userData.name}</h4>
               <img src="" alt=""/>
               <div className="coins-amount">
                 <img src={coin} alt="Coin"/>
-                <p>1231</p>
+                <p>{userData.points}</p>
               </div>
             </div>
           </nav>  
