@@ -5,6 +5,7 @@ import Productos from './productos/Productos'
 import Creditos from './mas-creditos/Creditos'
 import Historial from './historial/Historial'
 import Item from './item/Item'
+import Footer from './footer/Footer'
 import { Route, Link } from 'react-router-dom';
 import coin from './images/icons/coin.svg';
 // get our fontawesome imports
@@ -59,7 +60,6 @@ function App() {
           </nav>  
         </div>
       </header>
-
         <Route exact path="/">
           <Productos/>
         </Route>
@@ -72,20 +72,7 @@ function App() {
         <Route exact path="/producto">
           <Item />
         </Route>
-      <footer>
-        <div className="footer-1440">
-          <p>Hecho por Tomás Sánchez Soria</p>
-          <a href="https://twitter.com/tomi_SS" target="_blank">
-            <img src="" alt="Twitter"/>
-          </a>
-          <a href="https://www.linkedin.com/in/sanchezsoria/" target="_blank">
-            <img src="" alt="LinkedIn"/>
-          </a>
-          <a href="https://github.com/tosaso/" target="_blank">
-            <img src="" alt="Github"/>
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
