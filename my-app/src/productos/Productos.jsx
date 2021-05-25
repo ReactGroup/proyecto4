@@ -36,7 +36,7 @@ function Productos({productsItems}){
             </div>
             <div className="product-container">
                 {productsItems.map((product) =>
-                <Link to ={`producto/${product._id}`}>
+                <Link to ={`producto/${product._id}`} style={{ textDecoration: 'none' }}>
                     <ProductCard 
                     product={product}
                     {...product}/>
