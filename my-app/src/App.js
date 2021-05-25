@@ -10,7 +10,7 @@ import Item from './item/Item'
 import Footer from './footer/Footer'
 
 // Hooks, roots, etc
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, useParams } from 'react-router-dom';
 import { useState, useEffect} from "react";
 
 //imagenes
@@ -20,7 +20,10 @@ import coin from './images/icons/coin.svg';
 //import { faGithub } from "@fortawesome/free-solid-svg-icons";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+
+
 function App() {
+
 
   const [userData, setUserData] = useState([])
 
@@ -39,7 +42,30 @@ function App() {
     .then((results) => {
       setUserData(results);
     })
-  });
+  },[]);
+
+  /*  */
+
+  let [productsItems, setProductsItems] = useState([])
+
+  useEffect(()=>{
+      let api = fetch("https://coding-challenge-api.aerolab.co/products",{
+          headers: {
+              "Content-type": "application/json",
+              "Accept" : "application/json",
+              "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWRkOWU5OTQ0NGZlNDAwNmRhOTkyNGQiLCJpYXQiOjE1OTE1ODIzNjF9.-f40dyUIGFsBSB_PTeBGdSLI58I21-QBJNi9wkODcKk",
+          }
+      });
+      api 
+      .then((response) => {
+      return response.json();
+      })
+      .then((results) => {
+          setProductsItems(results);
+          console.log(results);
+      })
+  },[]);
+
 
 
   return (
@@ -64,7 +90,6 @@ function App() {
             </ul>
             <div className="profile">
               <h4>{userData.name}</h4>
-              <img src="" alt=""/>
               <div className="coins-amount">
                 <img src={coin} alt="Coin"/>
                 <p>{userData.points}</p>
@@ -74,7 +99,9 @@ function App() {
         </div>
       </header>
         <Route exact path="/">
-          <Productos/>
+          <Productos
+            productsItems={productsItems}
+          />
         </Route>
         <Route exact path="/mas-creditos">
           <Creditos />
@@ -82,9 +109,10 @@ function App() {
         <Route exact path="/historial">
           <Historial />
         </Route>
-        <Route exact path="/producto">
-          <Item />
-        </Route>
+        {/* <Route path="/producto/:id" render={(props)=> <Item {...props}/>}/> */}
+        <Route exact path="/producto/:id" render={({match}) => (
+          <Item productsItems={productsItems.find(p => p._id === match.params.id)} />
+        )} />
       <Footer />
     </div>
   );

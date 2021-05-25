@@ -1,17 +1,20 @@
 import './item.css';
 import React from 'react'
 import coin from '../images/icons/coin.svg'
+import { useState, useEffect} from "react";
 
 
-function Item(){
+function Item({productsItems}){
     return(
         <section className="item">
             <div className="item-container">
-                <div className="picture">{/* imagen */}</div>
+                <div className="picture">
+                    <img src={productsItems.img.url} alt={productsItems.name}/>
+                </div>
                 <div className="info-container">
-                    <h4>Category</h4>
-                    <h2>Nombre</h2>
-                    <h5>Valor: <img src={coin} alt="coin"/><span> 121221</span></h5>
+                    <h4>{productsItems.category}</h4>
+                    <h2>{productsItems.name}</h2>
+                    <h5>Valor: <img src={coin} alt="coin"/><span>{productsItems.cost}</span></h5>
                     <div>
                         <button>Canjear
                         <img src="" alt="Buy"/>
