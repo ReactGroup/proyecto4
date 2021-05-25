@@ -1,4 +1,8 @@
 import React from 'react';
+import { faGithub } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faGlobe,faBed, faDollarSign} from '@fortawesome/free-solid-svg-icons'
+
 
 function Footer(){
     return (
@@ -12,7 +16,7 @@ function Footer(){
             <img src="" alt="LinkedIn"/>
           </a>
           <a href="https://github.com/tosaso/" target="_blank">
-            <img src="" alt="Github"/>
+            <FontAwesomeIcon icon={faGlobe}/>
           </a>
         </div>
       </footer>
