@@ -86,7 +86,19 @@ footer{
     padding: 0 1rem;
 }
 
+footer p{
+    color: #616161;
+    padding: 0 10px 0 0;
+}
+
 footer a{
-    padding: 0 10px 0 5px;
-    
+    padding: 0 10px 0 0;
+    font-size: 26px;
+    color: #616161;
+}
+
+footer a:hover{
+    padding: 0 10px 0 0;
+    font-size: 26px;
+    color: #285895;
 }

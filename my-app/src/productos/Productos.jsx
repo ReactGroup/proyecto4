@@ -7,7 +7,6 @@ import { Route, Link, useParams} from 'react-router-dom';
 import { useState, useEffect} from "react";
 
 //imagenes
-import portada from '../images/header-x1.png';
 import next from '../images/icons/arrow-right.svg'
 
 
@@ -15,9 +14,7 @@ function Productos({productsItems}){
 
     return (
         <div className="productos">
-            <div className="portada">
-                <img src={portada} alt="portada"/>
-            </div>
+            <div className="portada"></div>
             <div className="filter-container">
                {/* filtros */}
                <form action="">
