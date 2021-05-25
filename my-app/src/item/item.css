@@ -11,10 +11,10 @@
     margin: 0 auto;
 }
 .picture{
-    background-color: tomato;
+    background-color: #fff;
     width: 50%;
     height: 300px;
-    object-fit: cover;
+    object-fit: contain;
     background-repeat: no-repeat;
     margin: 3rem 0 3rem 3rem;
     border-radius: 10px;

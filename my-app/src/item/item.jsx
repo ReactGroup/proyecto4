@@ -5,12 +5,11 @@ import { useState, useEffect} from "react";
 
 
 function Item({productsItems}){
+
     return(
         <section className="item">
             <div className="item-container">
-                <div className="picture">
-                    <img src={productsItems.img.url} alt={productsItems.name}/>
-                </div>
+                <img className="picture" src={productsItems.img.hdUrl} alt={productsItems.name}/>
                 <div className="info-container">
                     <h4>{productsItems.category}</h4>
                     <h2>{productsItems.name}</h2>
