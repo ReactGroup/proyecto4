@@ -1,10 +1,14 @@
 import './item.css';
 import React from 'react'
 import coin from '../images/icons/coin.svg'
+import { Link} from 'react-router-dom';
 import { useState, useEffect} from "react";
 
+import ProductCard from '../productos/ProductCard'
 
-function Item({productsItems}){
+
+function Item({productsItems,copiaProducts}){
+    console.log(copiaProducts)
 
     return(
         <section className="item">
@@ -22,19 +26,18 @@ function Item({productsItems}){
                 </div>
             </div>
             <div className="similar-container" >
-                  <h5 className="similar-title">Otros productos similares</h5> 
-                  <div className="product-container">
-                {/* for each productos hasta 4 */} 
-                <a className="each-product" href="#dinamic" target="_self">
-                    <div className="image-container">
-                        <div src="" alt="#product-name" className="image-product"/>
-                        <div src="icon ? disponible:a-partir-x-coins" alt="" className="available-price"/>
-                    </div>
-                    <h5 className="category">Categoria</h5>
-                    <h6 className="name-product">Producto</h6>
-                </a>
-                {/* FIN for each productos */} 
-            </div> 
+                <h5 className="similar-title">Otros productos similares</h5> 
+                <div className="product-container">
+                {copiaProducts.filter((product) =>
+                    product.category === productsItems.category
+                ).map((product) =>
+                    <Link to ={`${product._id}`} style={{ textDecoration: 'none' }}>
+                        <ProductCard 
+                        product={product}
+                        {...product}/>
+                    </Link>
+                )}
+                </div> 
             </div>
         </section>
     );

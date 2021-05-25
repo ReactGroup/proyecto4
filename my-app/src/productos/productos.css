@@ -3,6 +3,7 @@
     margin-top: 70px;
 }
 
+
 .portada{
     height: 480px;
     width: 100%;
@@ -49,6 +50,9 @@
     margin: 0px 2% 4rem;
 }
 
+.each-product:hover{
+background-color: #BEE7F0;
+}
 
 .image-container{
     position: relative;

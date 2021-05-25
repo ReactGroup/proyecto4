@@ -16,11 +16,6 @@ import { useState, useEffect} from "react";
 //imagenes
 import coin from './images/icons/coin.svg';
 
-// get our fontawesome imports
-//import { faGithub } from "@fortawesome/free-solid-svg-icons";
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-
 
 function App() {
 
@@ -44,10 +39,9 @@ function App() {
     })
   },[]);
 
-  /*  */
+  /* listado de productos */
 
   let [productsItems, setProductsItems] = useState([])
-
   useEffect(()=>{
       let api = fetch("https://coding-challenge-api.aerolab.co/products",{
           headers: {
@@ -65,6 +59,7 @@ function App() {
           console.log(results);
       })
   },[]);
+  let copiaProducts = productsItems
 
 
 
@@ -111,7 +106,9 @@ function App() {
         </Route>
         {/* <Route path="/producto/:id" render={(props)=> <Item {...props}/>}/> */}
         <Route exact path="/producto/:id" render={({match}) => (
-          <Item productsItems={productsItems.find(p => p._id === match.params.id)} />
+          <Item 
+          copiaProducts={copiaProducts}
+            productsItems={productsItems.find(p => p._id === match.params.id)} />
         )} />
       <Footer />
     </div>
