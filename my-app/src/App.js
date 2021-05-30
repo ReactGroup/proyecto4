@@ -66,12 +66,11 @@ function App() {
     <div className="App">
       <header>
         <div className="max-1440">
-          <img src="" alt="Logo"/>
+          <Link to="/">
+            <img src="" alt="Logo"/>
+          </Link>
           <nav className="principal-header">
             <ul>
-              <li>
-                <Link to="/">Inicio</Link>
-                </li> 
                 <li>
                 <Link to="/mas-creditos">Más Creditos</Link>
                 </li> 
