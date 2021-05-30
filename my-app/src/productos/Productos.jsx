@@ -10,7 +10,15 @@ import { useState, useEffect} from "react";
 import next from '../images/icons/arrow-right.svg'
 
 
-function Productos({productsItems}){
+function Productos({productsItems, categoryProducts}){
+
+    var options = {};
+    categoryProducts = categoryProducts.filter(function(current) {
+    var exists = !options[current.category];
+    options[current.category] = true;
+    return exists;
+    });
+    console.log(categoryProducts)
 
     return (
         <div className="productos">
@@ -18,8 +26,10 @@ function Productos({productsItems}){
             <div className="filter-container">
                {/* filtros */}
                <form action="">
-                    <select name="Categorias" id="">
-                        <option value="">category</option>
+                    <select name="Categorias" id="categories">
+                        {categoryProducts.map((option)=>
+                            <option key={option._id} value={option.category}>{option.category}</option>
+                        )}
                     </select>
                     <select name="Ordenar por precio" id="">
                         <option value="">Más bajo primero</option>

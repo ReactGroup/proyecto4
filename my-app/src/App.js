@@ -59,6 +59,7 @@ function App() {
       })
   },[]);
   let copiaProducts = productsItems
+  let categoryProducts = productsItems
 
 
 
@@ -90,6 +91,7 @@ function App() {
       </header>
         <Route exact path="/">
           <Productos
+          categoryProducts={categoryProducts}
             productsItems={productsItems}
           />
         </Route>
