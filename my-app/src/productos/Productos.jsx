@@ -1,24 +1,22 @@
 import './productos.css';
 import React from 'react'
-import ProductCard from './ProductCard'
+import Results from './Results'
+import Filtros from './Filtros'
 
 // Hooks, roots, etc
-import { Link} from 'react-router-dom';
-import { useState, useEffect} from "react";
+import { useState } from "react";
 
 //imagenes
 import next from '../images/icons/arrow-right.svg'
+import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-function Productos({productsItems, categoryProducts}){
+function Productos({productsItems}){
 
-    var options = {};
-    categoryProducts = categoryProducts.filter(function(current) {
-    var exists = !options[current.category];
-    options[current.category] = true;
-    return exists;
-    });
-    console.log(categoryProducts)
+    let [categoryFilter, setCategoryFilter] = useState("Todas");
+    let [productList, setProductList] = useState(productsItems);
+
 
     return (
         <div className="productos">
@@ -26,30 +24,21 @@ function Productos({productsItems, categoryProducts}){
             <div className="filter-container">
                {/* filtros */}
                <form action="">
-                    <select name="Categorias" id="categories">
-                        {categoryProducts.map((option)=>
-                            <option key={option._id} value={option.category}>{option.category}</option>
-                        )}
-                    </select>
-                    <select name="Ordenar por precio" id="">
-                        <option value="">Más bajo primero</option>
-                        <option value="">Más alto primero</option>
-                    </select>
-                    <button>
-                        <img src="" alt="erase"/>
+                    <Filtros
+                    productsItems={productsItems}
+                    stateFilter={categoryFilter}
+                    category={category}
+                    />
+                    <button type="reset" onClick={btnReset}>
+                        <FontAwesomeIcon icon={faTrashAlt} />
                         Borrar filtros
                     </button>
                 </form>
             </div>
-            <div className="product-container">
-                {productsItems.slice(0, 16).map((product) =>
-                <Link to ={`producto/${product._id}`} style={{ textDecoration: 'none' }}>
-                    <ProductCard 
-                    product={product}
-                    {...product}/>
-                </Link>
-                )}
-            </div>
+            <Results
+                productList={productList}
+                productsItems={productsItems}
+            />
             {/* paginador */} 
             <a className="pagination" href="" target="_self">
                 Siguiente
@@ -58,6 +47,15 @@ function Productos({productsItems, categoryProducts}){
             {/* paginador */} 
         </div>
     );
-}
+    function category(ultimaLista, state) {
+        setCategoryFilter(state);
+        setProductList(ultimaLista);
+    };
+
+    function btnReset() {
+        setProductList(productsItems);
+        setCategoryFilter("Todas");
+    };
+};
 
 export default Productos;

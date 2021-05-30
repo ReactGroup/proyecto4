@@ -59,9 +59,6 @@ function App() {
       })
   },[]);
   let copiaProducts = productsItems
-  let categoryProducts = productsItems
-
-
 
   return (
     <div className="App">
@@ -91,7 +88,6 @@ function App() {
       </header>
         <Route exact path="/">
           <Productos
-          categoryProducts={categoryProducts}
             productsItems={productsItems}
           />
         </Route>
