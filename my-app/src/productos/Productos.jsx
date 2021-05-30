@@ -25,7 +25,7 @@ function Productos({productsItems}){
                {/* filtros */}
                <form action="">
                     <Filtros
-                    productsItems={productList}
+                    productsItems={productsItems}
                     stateFilter={categoryFilter}
                     category={category}
                     />
