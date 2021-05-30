@@ -8,7 +8,6 @@ import ProductCard from '../productos/ProductCard'
 
 
 function Item({productsItems,copiaProducts}){
-    console.log(copiaProducts)
 
     return(
         <section className="item">

@@ -32,7 +32,7 @@ function Productos({productsItems}){
                 </form>
             </div>
             <div className="product-container">
-                {productsItems.map((product) =>
+                {productsItems.slice(0, 16).map((product) =>
                 <Link to ={`producto/${product._id}`} style={{ textDecoration: 'none' }}>
                     <ProductCard 
                     product={product}

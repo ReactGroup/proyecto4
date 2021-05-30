@@ -27,7 +27,7 @@ function App() {
       headers: {
         "Content-type": "application/json",
         "Accept" : "application/json",
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWRkOWU5OTQ0NGZlNDAwNmRhOTkyNGQiLCJpYXQiOjE1OTE1ODIzNjF9.-f40dyUIGFsBSB_PTeBGdSLI58I21-QBJNi9wkODcKk",
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGIwNTI3MjliNzc4MTAwMjA5YzVhYWIiLCJpYXQiOjE2MjIxNjgxNzh9.rvgBvfaLqxHZv-gU_GUyFz4c6hIybWT9rihd6MFTnno",
       }
     });
     api 
@@ -56,7 +56,6 @@ function App() {
       })
       .then((results) => {
           setProductsItems(results);
-          console.log(results);
       })
   },[]);
   let copiaProducts = productsItems
@@ -79,9 +78,6 @@ function App() {
                 <li>
                 <Link to="/historial">Historial</Link>
                 </li>
-                <li>
-                <Link to="/producto">producto especifico</Link>
-                </li> 
             </ul>
             <div className="profile">
               <h4>{userData.name}</h4>
