@@ -10,6 +10,7 @@
     height: 300px;
     display: flex;
     padding: 8em 0 5em;
+    justify-content: center;
 }
 
 /* ---- TEXTO DESCRIPTIVO ----- */
