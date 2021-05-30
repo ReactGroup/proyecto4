@@ -2,12 +2,12 @@ import './productos.css';
 import React from 'react'
 import Results from './Results'
 import Filtros from './Filtros'
+import Paginador from './Paginador'
 
 // Hooks, roots, etc
 import { useState } from "react";
 
 //imagenes
-import next from '../images/icons/arrow-right.svg'
 import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -25,7 +25,7 @@ function Productos({productsItems}){
                {/* filtros */}
                <form action="">
                     <Filtros
-                    productsItems={productsItems}
+                    productsItems={productList}
                     stateFilter={categoryFilter}
                     category={category}
                     />
@@ -37,14 +37,10 @@ function Productos({productsItems}){
             </div>
             <Results
                 productList={productList}
-                productsItems={productsItems}
             />
-            {/* paginador */} 
-            <a className="pagination" href="" target="_self">
-                Siguiente
-                <img src={next} alt="next"/>
-            </a>
-            {/* paginador */} 
+            <Paginador
+            productList={productList}
+             />
         </div>
     );
     function category(ultimaLista, state) {

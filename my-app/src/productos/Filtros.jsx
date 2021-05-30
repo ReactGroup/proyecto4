@@ -16,6 +16,7 @@ function Filtros({stateFilter,productsItems, category,}){
     return(
         <>
             <select name="Categorias" id="categories" onChange={filterCategory}>
+                <option value="Todas">Todas</option>
                 {categories.map((option)=>
                     <option key={option._id} value={option.category}>{option.category}</option>
                 )}
@@ -28,7 +29,7 @@ function Filtros({stateFilter,productsItems, category,}){
     function filterCategory(e){
         let updatelist = productsItems
         .filter((value) => {
-            return e.target.value === "Todos"
+            return e.target.value === "Todas"
               ? value
               : value.category === e.target.value;
           });
