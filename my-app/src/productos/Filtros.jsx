@@ -21,8 +21,10 @@ function Filtros({stateFilter,productsItems, category,}){
                     <option key={option._id} value={option.category}>{option.category}</option>
                 )}
             </select>
-            <button onCLick="">Más bajo primero</button>
-            <button onCLick="">Más alto primero</button>
+            <input type="radio" id="lowest" name="filter" value="lowest" />
+            <label for="lowest">Precio más bajo</label>
+            <input type="radio" id="highest" name="filter" value="highest" onClick={filterHigher} />
+            <label for="highest">Precio más alto</label>
         </>
     );
     
