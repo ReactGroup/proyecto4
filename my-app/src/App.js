@@ -6,7 +6,7 @@ import './App.css';
 import Productos from './productos/Productos'
 import Creditos from './mas-creditos/Creditos'
 import Historial from './historial/Historial'
-import Item from './item/Item'
+import Item from './item/item'
 import Footer from './footer/Footer'
 
 // Hooks, roots, etc
@@ -42,6 +42,8 @@ function App() {
   /* listado de productos */
 
   let [productsItems, setProductsItems] = useState([])
+  let [categoryItems, setCategoryItems] = useState([])
+  
   useEffect(()=>{
       let api = fetch("https://coding-challenge-api.aerolab.co/products",{
           headers: {
@@ -56,6 +58,7 @@ function App() {
       })
       .then((results) => {
           setProductsItems(results);
+          setCategoryItems(results)
       })
   },[]);
   let copiaProducts = productsItems
@@ -89,6 +92,7 @@ function App() {
         <Route exact path="/">
           <Productos
             productsItems={productsItems}
+            categoryItems={categoryItems}
           />
         </Route>
         <Route exact path="/mas-creditos">

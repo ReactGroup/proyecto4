@@ -12,10 +12,9 @@ import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-function Productos({productsItems}){
+function Productos({productsItems,categoryItems}){
 
-    let [categoryFilter, setCategoryFilter] = useState("Todas");
-    let [productList, setProductList] = useState(productsItems);
+    let [productList, setProductList] = useState([]);
 
 
     return (
@@ -25,9 +24,10 @@ function Productos({productsItems}){
                {/* filtros */}
                <form action="">
                     <Filtros
+                    categoryItems={categoryItems}
                     productsItems={productsItems}
-                    stateFilter={categoryFilter}
-                    category={category}
+                    filter={filter}
+                    
                     />
                     <button type="reset" onClick={btnReset}>
                         <FontAwesomeIcon icon={faTrashAlt} />
@@ -39,18 +39,18 @@ function Productos({productsItems}){
                 productList={productList}
             />
             <Paginador
-            productList={productList}
-             />
+            productsItems={productsItems} />
         </div>
     );
-    function category(ultimaLista, state) {
-        setCategoryFilter(state);
-        setProductList(ultimaLista);
-    };
+
+    function filter(selected){
+        setProductList(selected)
+       
+    }
 
     function btnReset() {
         setProductList(productsItems);
-        setCategoryFilter("Todas");
+
     };
 };
 

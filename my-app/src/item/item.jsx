@@ -8,7 +8,6 @@ import ProductCard from '../productos/ProductCard'
 
 
 function Item({productsItems,copiaProducts}){
-
     return(
         <section className="item">
             <div className="item-container">

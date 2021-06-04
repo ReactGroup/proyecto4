@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState } from "react";
 
-function Filtros({stateFilter,productsItems, category,}){
+function Filtros({categoryItems,filter}){
  
 
-    let categories = productsItems
+    let categories = categoryItems
     var options = {};
     categories = categories.filter(function(current) {
     var exists = !options[current.category];
@@ -21,7 +21,7 @@ function Filtros({stateFilter,productsItems, category,}){
                     <option key={option._id} value={option.category}>{option.category}</option>
                 )}
             </select>
-            <input type="radio" id="lowest" name="filter" value="lowest" />
+            <input type="radio" id="lowest" name="filter" value="lowest" onClick={filterLower}/>
             <label for="lowest">Precio más bajo</label>
             <input type="radio" id="highest" name="filter" value="highest" onClick={filterHigher} />
             <label for="highest">Precio más alto</label>
@@ -29,31 +29,24 @@ function Filtros({stateFilter,productsItems, category,}){
     );
     
     function filterCategory(e){
-        let updatelist = productsItems
-        .filter((value) => {
+        let updatelist = categoryItems.filter((value) => {
             return e.target.value === "Todas"
               ? value
               : value.category === e.target.value;
           });
-          category(updatelist, e.target.value);
+          filter(updatelist, e.target.value);
     };
 
+    function filterHigher(e){
+        let order = categoryItems.sort((a,b) => b.cost - a.cost);
+        filter(order)
+    };
 
+    function filterLower(e){
+        let order = categoryItems.sort((a,b) => a.cost - b.cost);
+        filter(order)
+    };
 
-
-     //filtra de menor a mayor
-        //   function cheapOrder(e) {
-    //     cheapOrder.sort(function(a, b) {
-    //         if (a.cost > b.cost) {
-    //             return 1;
-    //           }
-    //           if (a.cost < b.cost) {
-    //             return -1;
-    //           }
-    //           // a must be equal to b
-    //           return 0;
-    //       });
-    //   }
 }
 
 export default Filtros;
