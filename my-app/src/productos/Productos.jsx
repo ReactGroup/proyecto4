@@ -14,7 +14,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Productos({productsItems,categoryItems}){
 
-    let [productList, setProductList] = useState([]);
+    const [productList, setProductList] = useState([]);
+    const [pagination, setPagination] = useState(true); //page para dami
+
+    const pageSlice = pagination ? productList.slice(16,32) : productList.slice(0,16);
 
     // para mostrar productos de manera inicial
     //let [incial, setInicial] = useState(productsItems);
@@ -23,8 +26,7 @@ function Productos({productsItems,categoryItems}){
     useEffect(()=>{
         if(productList.length === 0){setProductList(productsItems)}
     });
-
-
+    
     return (
         <div className="productos">
             <div className="portada"></div>
@@ -44,9 +46,14 @@ function Productos({productsItems,categoryItems}){
             </div>
             <Results 
                 productList={productList}
+                pagination={pagination}
             />
             <Paginador
-            productsItems={productsItems} />
+            productList={productList}
+            pagination={pagination}
+            setPagination={setPagination}
+            //numberPag={numberPag}
+            />
         </div>
     );
 
@@ -56,10 +63,17 @@ function Productos({productsItems,categoryItems}){
         setProductList(selected)
     }
 
+    //function numberPag(e){
+    //    setPagination(e)
+    //}
+
     function btnReset() {
         setProductList(productsItems);
 
     };
+
+    
+
 };
 
 export default Productos;

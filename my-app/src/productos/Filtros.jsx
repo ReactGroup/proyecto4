@@ -17,7 +17,7 @@ function Filtros({categoryItems,filter,productList}){
         <>
             <select name="Categorias" id="categories" onChange={filterCategory}>
                 <option value="Todas">Todas</option>
-                {categories.map((option)=>
+                 {categories.map((option)=>
                     <option key={option._id} value={option.category}>{option.category}</option>
                 )}
             </select>
