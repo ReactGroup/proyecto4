@@ -1,17 +1,17 @@
 import React from 'react'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function Filtros({categoryItems,filter}){
+function Filtros({categoryItems,filter,productList}){
  
+        let [resultFilter, setResultFilter] = useState(productList)
 
-    let categories = categoryItems
-    var options = {};
-    categories = categories.filter(function(current) {
-    var exists = !options[current.category];
-    options[current.category] = true;
-    return exists;
-    });
-
+        let categories = categoryItems
+        var options = {};
+        categories = categories.filter(function(current) {
+            var exists = !options[current.category];
+            options[current.category] = true;
+            return exists;
+        });
 
     return(
         <>
@@ -34,16 +34,21 @@ function Filtros({categoryItems,filter}){
               ? value
               : value.category === e.target.value;
           });
-          filter(updatelist, e.target.value);
+          filter(updatelist);
+          setResultFilter(updatelist);
     };
 
+    
     function filterHigher(e){
-        let order = categoryItems.sort((a,b) => b.cost - a.cost);
-        filter(order)
+        let copia = [...productList];
+        console.log(copia);
+        let order = copia.sort((a,b) => b.cost - a.cost);
+        filter(order);
     };
 
     function filterLower(e){
-        let order = categoryItems.sort((a,b) => a.cost - b.cost);
+        let copia = [...productList];
+        let order = copia.sort((a,b) => a.cost - b.cost);
         filter(order)
     };
 
