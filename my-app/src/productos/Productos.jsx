@@ -1,5 +1,5 @@
 import './productos.css';
-import React from 'react'
+import React, { useEffect } from 'react'
 import Results from './Results'
 import Filtros from './Filtros'
 import Paginador from './Paginador'
@@ -16,6 +16,14 @@ function Productos({productsItems,categoryItems}){
 
     let [productList, setProductList] = useState([]);
 
+    // para mostrar productos de manera inicial
+    //let [incial, setInicial] = useState(productsItems);
+    //console.log(productsItems);
+
+    useEffect(()=>{
+        if(productList.length === 0){setProductList(productsItems)}
+    });
+
 
     return (
         <div className="productos">
@@ -24,10 +32,9 @@ function Productos({productsItems,categoryItems}){
                {/* filtros */}
                <form action="">
                     <Filtros
+                    productList={productList}
                     categoryItems={categoryItems}
-                    productsItems={productsItems}
                     filter={filter}
-                    
                     />
                     <button type="reset" onClick={btnReset}>
                         <FontAwesomeIcon icon={faTrashAlt} />
@@ -35,7 +42,7 @@ function Productos({productsItems,categoryItems}){
                     </button>
                 </form>
             </div>
-            <Results
+            <Results 
                 productList={productList}
             />
             <Paginador
@@ -43,9 +50,10 @@ function Productos({productsItems,categoryItems}){
         </div>
     );
 
+
+
     function filter(selected){
         setProductList(selected)
-       
     }
 
     function btnReset() {
