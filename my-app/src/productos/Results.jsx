@@ -3,6 +3,9 @@ import ProductCard from './ProductCard'
 import { Link} from 'react-router-dom';
 
 function Results({productList}){
+
+
+
     return(
         <>
         <div className="product-container">
