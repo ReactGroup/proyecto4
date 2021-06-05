@@ -51,8 +51,7 @@ function App() {
               "Accept" : "application/json",
               "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWRkOWU5OTQ0NGZlNDAwNmRhOTkyNGQiLCJpYXQiOjE1OTE1ODIzNjF9.-f40dyUIGFsBSB_PTeBGdSLI58I21-QBJNi9wkODcKk",
           }
-      });
-      api 
+      })
       .then((response) => {
       return response.json();
       })
@@ -61,7 +60,7 @@ function App() {
           setCategoryItems(results)
       })
   },[]);
-  let copiaProducts = productsItems
+  let copiaProducts = [...productsItems]
 
   return (
     <div className="App">
@@ -101,7 +100,6 @@ function App() {
         <Route exact path="/historial">
           <Historial />
         </Route>
-        {/* <Route path="/producto/:id" render={(props)=> <Item {...props}/>}/> */}
         <Route exact path="/producto/:id" render={({match}) => (
           <Item 
           copiaProducts={copiaProducts}
