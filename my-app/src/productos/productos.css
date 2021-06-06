@@ -156,11 +156,21 @@ justify-content: center;
 align-items: center;
 text-decoration: none;
 color:  #616161;
-padding: 1.5rem 0 2rem;
+padding: 0 0 2rem;
+}
+
+.pagination button{
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border:none;
+    font-weight: bold;
+    color: #8e8e8e;
 }
 
 .pagination img{
-padding-left: 10px;
+    padding: 0 10px;
+    height: 2rem;
 }
 
 @media (max-width: 640px){
