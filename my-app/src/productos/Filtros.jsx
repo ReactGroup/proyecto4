@@ -21,10 +21,16 @@ function Filtros({categoryItems,filter,productList}){
                     <option key={option._id} value={option.category}>{option.category}</option>
                 )}
             </select>
-            <input type="radio" id="lowest" name="filter" value="lowest" onClick={filterLower}/>
-            <label for="lowest">Precio más bajo</label>
-            <input type="radio" id="highest" name="filter" value="highest" onClick={filterHigher} />
-            <label for="highest">Precio más alto</label>
+            <div className="price-container">
+                <div className="flex">
+                    <input type="radio" id="lowest" name="filter" value="lowest" onClick={filterLower}/>
+                    <label for="lowest">Precio más bajo</label>
+                </div>
+                <div className="flex">
+                    <input type="radio" id="highest" name="filter" value="highest" onClick={filterHigher} />
+                    <label for="highest">Precio más alto</label>
+                </div>
+            </div>
         </>
     );
     

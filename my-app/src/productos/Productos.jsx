@@ -32,7 +32,7 @@ function Productos({productsItems,categoryItems}){
             <div className="portada"></div>
             <div className="filter-container">
                {/* filtros */}
-               <form action="">
+               <form className="filters flex">
                     <Filtros
                     productList={productList}
                     categoryItems={categoryItems}
@@ -56,7 +56,6 @@ function Productos({productsItems,categoryItems}){
             />
         </div>
     );
-
 
 
     function filter(selected){

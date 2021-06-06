@@ -26,11 +26,51 @@
     margin: 0 auto;
 }
 
+
 .filter-container form select{
     margin: 0 20px;
     padding: 5px 20px;
     font-size: 10px;
 }
+.price-container{
+    display: flex;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+.filters div input{
+    margin: 0 3px 3px;
+}
+
+.filters div label{
+    padding-right: 1rem;
+}
+
+
+.filters button {
+    padding: 9px 17px;
+    border: none;
+    border-radius: 5px;
+    background-color:#40b7cd;
+    color: black;
+    font-weight: bold;
+}
+
+.filters button:hover {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #18669b;
+    font-weight: bold;
+    color:white;
+}
+
+.filters svg {
+margin-right: 5px;
+}
+
+
 
 /* ---- PRODUCTOS ----- */
 .product-container{
@@ -121,4 +161,30 @@ padding: 1.5rem 0 2rem;
 
 .pagination img{
 padding-left: 10px;
+}
+
+@media (max-width: 640px){
+    /* ---- FILTROS ----- */
+    .filter-container{
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    .filters{
+        flex-direction: column;
+    }
+
+    .price-container{
+        display: flex;
+        margin: 1.5rem 0;
+    }
+    .filter-container form select{
+        margin: 0 20px;
+        padding: 11px 20px;
+        font-size: 10px;
+        width: 100%;
+    }
+    .filters button{
+        width: 70%;
+    }
 }
