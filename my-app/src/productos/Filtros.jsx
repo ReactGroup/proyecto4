@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 function Filtros({categoryItems,filter,productList}){
  
-        let [resultFilter, setResultFilter] = useState(productList)
+        const [resultFilter, setResultFilter] = useState(productList)
 
         let categories = categoryItems
         var options = {};

@@ -69,7 +69,6 @@ function Productos({productsItems,categoryItems}){
 
     function btnReset() {
         setProductList(productsItems);
-
     };
 
     
