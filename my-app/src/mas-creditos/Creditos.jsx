@@ -51,12 +51,18 @@ function Creditos(){
                         <input className="input user" placeholder="Usuario" type="text"/>
                         <input className="input pass" placeholder="Contraseña" type="text"/>
                         <div className="btn-container">
-                            <input type="radio" id="1000" name="credit" value="1000" onChange={handleClick} />
-                            <label for="1000">1000<img src={coin} alt="Coin"/></label>
-                            <input type="radio" id="5000" name="credit" value="5000" onChange={handleClick} />
-                            <label for="5000">5000<img src={coin} alt="Coin"/></label>
-                            <input type="radio" id="7500" name="credit" value="7500" onChange={handleClick} />
-                            <label for="7500">7500<img src={coin} alt="Coin"/></label>
+                            <div className="flex">
+                                <input type="radio" id="1000" name="credit" value="1000" onChange={handleClick} />
+                                <label for="1000">1000<img src={coin} alt="Coin"/></label>
+                            </div>
+                            <div className="flex">
+                                <input type="radio" id="5000" name="credit" value="5000" onChange={handleClick} />
+                                <label for="5000">5000<img src={coin} alt="Coin"/></label>
+                            </div>
+                            <div className="flex">
+                                <input type="radio" id="7500" name="credit" value="7500" onChange={handleClick} />
+                                <label for="7500">7500<img src={coin} alt="Coin"/></label>
+                            </div>
                         </div>
                         <button onClick={handleSubmit}>Canjear</button>
                     </form>

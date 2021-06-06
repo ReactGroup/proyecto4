@@ -50,6 +50,7 @@
     height: 200px;
     width: 350px;
     border-radius: 10px;
+    padding: 15px 0;
     background: white;
     display: flex;
     flex-direction: column;
@@ -70,15 +71,32 @@
     margin: 1em;
     display: flex;
     justify-content: space-between;
-    width: 60%;
+  
 }
 
-.btn-container button{
+.btn-container label{
     display: flex;
     align-items: center;
-    padding: 5px 10px;
-    border-radius: 20.5px;
-    border: 0px solid transparent;
+}
+
+.btn-container input{
+    margin-top: 0;
+}
+
+.form-container form button{
+    padding: 9px 17px;
+    border: none;
+    border-radius: 5px;
+    background-color:#40b7cd;
+    color: black;
+    font-weight: bold;
+}
+
+.form-container form button:hover{
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #18669b;
+    font-weight: bold;
+    color:white;
 }
 
 div label input {
@@ -119,4 +137,24 @@ div label input {
  .ck-button input:checked + span {
      background-color:#911;
      color:#fff;
+ }
+
+ @media (max-width: 640px){
+    .container-credit{
+        flex-direction: column;
+    }
+    .text-container{
+        margin: 3rem 1rem 0;
+    }
+    .form-container{
+        margin: 2rem 1rem 3rem;
+    }
+
+    .form-container form{
+        width: 100%;
+    }
+    .btn-container{
+        width: 90%;
+    }
+
  }
