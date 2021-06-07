@@ -13,7 +13,7 @@
 .picture{
     background-color: #fff;
     width: 50%;
-    height: 300px;
+    height: auto;
     object-fit: contain;
     background-repeat: no-repeat;
     margin: 3rem 0 3rem 3rem;
@@ -77,4 +77,42 @@
     font-size: 20px;
     margin: 0;
     padding: 1rem 0 0.5rem 30px;
+}
+
+/* ---- volver a home ----- */
+.back-home{
+    display: flex;
+}
+.btn-home-item{
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color:#40b7cd;
+    font-weight: bold;
+}
+
+.btn-home-item:hover{
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+
+
+@media (max-width: 640px){
+    .item-container{
+        flex-direction: column;
+    }
+    .picture{
+        margin: 3rem auto 0;
+        width: 85%;
+        height: auto;
+    }
+    .info-container{
+        width: 74%;
+        margin: 1rem 0 4rem;
+    }
+    .info-container div button{
+        margin-top: 1rem;
+    }
 }

@@ -36,7 +36,14 @@ function Item({productsItems,copiaProducts}){
                     </Link>
                 )}
                 </div> 
+                <div className="back-home">
+                    <button className="btn-home-item">
+                        <Link to="/" style={{ textDecoration: 'none', color:'black' }}>Mirá los otros premios que tenemos para vos</Link>
+                    </button>
             </div>
+            </div>
+
+            
         </section>
     );
 }

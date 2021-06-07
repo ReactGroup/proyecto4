@@ -20,10 +20,10 @@
 
 .btn-history{
     padding: 1rem 1.5rem;
-    border-radius: 20px;
+    border-radius: 5px;
     border: none;
-    background-color: lightblue;
-    color: black;
+    background-color:#40b7cd;
+    font-weight: bold;
 
 }
 
