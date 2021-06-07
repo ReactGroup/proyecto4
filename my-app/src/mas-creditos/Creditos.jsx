@@ -1,11 +1,16 @@
 import './creditos.css';
-import React, { Component } from 'react';
-import { useState } from "react";
-import coin from '../images/icons/coin.svg'
 
+import React, { Component } from 'react';
+import { useContext, useState } from "react";
+
+import { Redirect } from 'react-router';
+import coin from '../images/icons/coin.svg'
+import { coinContext } from '../contexts';
 
 function Creditos(){
-    let [credits, setCredits]  = useState("")
+    let [credits, setCredits]  = useState(0)
+    const {coins, setCoins} = useContext(coinContext)
+    const [home, setHome] = useState(false)
      const postUser = async () => {
     
             const response = await fetch("https://coding-challenge-api.aerolab.co/user/points",{
@@ -23,22 +28,26 @@ function Creditos(){
       }
 
       function handleClick(e){
-        if (e.target.value === "1000"){
+        if (e.target.value === '1000'){
             setCredits(1000); 
-        }else if(e.target.value === "5000") {
+        }else if(e.target.value === '5000') {
             setCredits(5000); 
-        }else if(e.target.value === "7500") {
+        }else if(e.target.value === '7500') {
             setCredits(7500); 
         }
     }
 
-    function handleSubmit(credits){
-        postUser(credits) 
+    function handleSubmit(value){
+        postUser(value) 
         alert("Exito al comprar"); 
-        window.location.reload(); 
+        setCoins(coins + credits)
+        setHome(true)
     }
 
     return(
+        <>
+        {home ? <Redirect to="/"></Redirect> 
+        :
         <section className="credito">
             <div className="container-credit">
                 <div className="text-container">
@@ -69,6 +78,8 @@ function Creditos(){
                 </div>
             </div>
         </section>
+        }
+        </>
     );
 }
 
