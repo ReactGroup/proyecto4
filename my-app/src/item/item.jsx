@@ -1,15 +1,52 @@
 import './item.css';
+
+import { useContext, useEffect, useState } from "react";
+
+import { Link } from 'react-router-dom';
+import ProductCard from '../productos/ProductCard'
 import React from 'react'
 import coin from '../images/icons/coin.svg'
-import { Link} from 'react-router-dom';
-import { useState, useEffect} from "react";
+import { coinContext } from '../contexts';
 
-import ProductCard from '../productos/ProductCard'
-
-
-function Item({productsItems,copiaProducts}){
-
-
+function Item({productsItems,copiaProducts,}){
+    const {coins, setCoins} = useContext(coinContext)
+    const handleRedeem = (productId, cost)=>{
+        console.log(productId, cost);
+        //llamar a la api y pasarle el productId
+    //     const postCost = async () => {
+    //         const response = await fetch("https://coding-challenge-api.aerolab.co/redeem",{
+    //         method: "POST",   
+    //         headers: {
+    //                      "Content-Type": "application/json",
+    //                      "Accept" : "application/json",
+    //                      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGIwNTI3MjliNzc4MTAwMjA5YzVhYWIiLCJpYXQiOjE2MjIxNjgxNzh9.rvgBvfaLqxHZv-gU_GUyFz4c6hIybWT9rihd6MFTnno",
+    //                  },
+    //                  body: JSON.stringify({
+    //                     "productId": productId
+    //                  })
+    //              })
+    //              response.json(); 
+    //   }
+        fetch("https://coding-challenge-api.aerolab.co/redeem",
+            {
+                method: "POST",   
+                headers: {
+                            "Content-Type": "application/json",
+                            "Accept" : "application/json",
+                            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGIwNTI3MjliNzc4MTAwMjA5YzVhYWIiLCJpYXQiOjE2MjIxNjgxNzh9.rvgBvfaLqxHZv-gU_GUyFz4c6hIybWT9rihd6MFTnno",
+                        },
+                        body: JSON.stringify({
+                            "productId": productId
+                        })
+            }
+        ).then(response=>{ //si entro aca, significa que se completo la peticion correctamente
+            // si nos reponde con 200 entonces restamos el costo a las monedas.
+            setCoins(coins - cost)    
+        })
+        // ).catch(error=>{
+        //     //Ocurrio un error        
+        // })
+    }
     return(
         <section className="item">
             <div className="item-container">
@@ -18,10 +55,17 @@ function Item({productsItems,copiaProducts}){
                     <h4>{productsItems.category}</h4>
                     <h2>{productsItems.name}</h2>
                     <h5>Valor: <img src={coin} alt="coin"/><span>{productsItems.cost}</span></h5>
-                    <div>
-                        <button>Canjear
-                        <img src="" alt="Buy"/>
-                        </button>
+                    <div> 
+                        { coins >= productsItems.cost ? (
+                            <button onClick={()=>handleRedeem(productsItems._id, productsItems.cost)}>Canjear
+                            <img src="" alt="Buy"/>
+                            </button>
+                        ) : (
+                            <h4>Te faltan puntos</h4>
+                        )
+
+                        }                       
+                        
                     </div>
                 </div>
             </div>

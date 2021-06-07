@@ -1,14 +1,15 @@
-import React from 'react'
-import menu from './menu.css'
-import { Route, Link, useParams } from 'react-router-dom';
+import { Link, Route, useParams } from 'react-router-dom';
+import React, {useContext} from 'react'
 
 //imagenes
 import coin from '../images/icons/coin.svg';
+import {coinContext} from '../contexts'
+import menu from './menu.css'
 
 export default function Menu({userData}){
+    const {coins} = useContext(coinContext);
     return(
         <>
-           
             <header className="header">
                 <div className="width-1440px" >
                 <Link to="/">
@@ -27,7 +28,7 @@ export default function Menu({userData}){
                         <h4 className="nombre-data">{userData.name}</h4>
                         <div className="coins-amount flex">
                             <img src={coin} alt="Coin"/>
-                            <p>{userData.points}</p>
+                            <p>{coins}</p>
                         </div>
                     </li>
                 </ul>
