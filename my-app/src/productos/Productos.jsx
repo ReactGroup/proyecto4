@@ -18,10 +18,10 @@ function Productos({productsItems,categoryItems}){
     const size = 16;
 
     useEffect(()=>{
-        if(productsItems.length > 0){
-            setPages(Math.ceil(productsItems.length/size))
-        }
-    },[productsItems.length])
+        setPages(Math.ceil(productList.length/size));
+        setCurrent(0)
+        console.log("text random")
+    },[productList.length])
 
 
     // const pageSlice = pagination ? productList.slice(16,32) : productList.slice(0,16);
