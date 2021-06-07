@@ -3,6 +3,7 @@
 import './App.css';
 
 // Componentes
+import Menu from './menu/Menu'
 import Productos from './productos/Productos'
 import Creditos from './mas-creditos/Creditos'
 import Historial from './historial/Historial'
@@ -13,8 +14,6 @@ import Footer from './footer/Footer'
 import { Route, Link, useParams } from 'react-router-dom';
 import { useState, useEffect} from "react";
 
-//imagenes
-import coin from './images/icons/coin.svg';
 
 
 function App() {
@@ -64,30 +63,7 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <div className="max-1440">
-          <Link to="/">
-            <img src="" alt="Logo"/>
-          </Link>
-          <nav className="principal-header">
-            <ul>
-                <li>
-                <Link style={{ textDecoration: 'none', color:'black' }} to="/mas-creditos">Más Creditos</Link>
-                </li> 
-                <li>
-                <Link style={{ textDecoration: 'none', color:'black' }} to="/historial">Historial</Link>
-                </li>
-            </ul>
-            <div className="profile">
-              <h4>{userData.name}</h4>
-              <div className="coins-amount">
-                <img src={coin} alt="Coin"/>
-                <p>{userData.points}</p>
-              </div>
-            </div>
-          </nav>  
-        </div>
-      </header>
+      <Menu userData={userData} />
         <Route exact path="/">
           <Productos
             productsItems={productsItems}
