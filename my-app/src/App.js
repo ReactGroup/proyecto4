@@ -78,7 +78,7 @@ function App() {
         <Route exact path="/producto/:id" render={({match}) => (
           <Item 
             copiaProducts={copiaProducts}
-            productsItems={productsItems.find(p => p._id === match.params.id)} />
+            productItem={productsItems.find(p => p._id === match.params.id)} />
         )} />
       <Footer />
     </div>
