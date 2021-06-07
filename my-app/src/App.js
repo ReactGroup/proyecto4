@@ -72,10 +72,10 @@ function App() {
           <nav className="principal-header">
             <ul>
                 <li>
-                <Link to="/mas-creditos">Más Creditos</Link>
+                <Link style={{ textDecoration: 'none', color:'black' }} to="/mas-creditos">Más Creditos</Link>
                 </li> 
                 <li>
-                <Link to="/historial">Historial</Link>
+                <Link style={{ textDecoration: 'none', color:'black' }} to="/historial">Historial</Link>
                 </li>
             </ul>
             <div className="profile">

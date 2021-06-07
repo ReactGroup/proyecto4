@@ -19,14 +19,12 @@ header{
 .principal-header{
     display: flex;
     height: 70px;
-    background-color: red;
     margin: 0;
     align-items: center;
 }
  ul{
     display: flex;
     height: 50px;
-    background-color: red;
     margin: 0;
     align-items: center;
 }
