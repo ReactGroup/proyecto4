@@ -1,70 +1,176 @@
-header{
-    background: #fff;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.06);
-    z-index: 1;
+/* header */
+
+.logo{
+    height: 20px;
+    width: auto;
 }
 
-.max-1440{
+.header {
+     top: 0;
+    background-color: #fff;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    height: 70px;
+    display: flex;
+    align-items: center;
+  }
+
+  .width-1440px{
     max-width: 1440px;
     margin: 0 auto;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
+    width: 100%;
 }
-
-.principal-header{
-    display: flex;
-    height: 70px;
+  
+  .menu {
     margin: 0;
-    align-items: center;
-}
- ul{
-    display: flex;
-    height: 50px;
-    margin: 0;
-    align-items: center;
-}
-
-.principal-header li  {
+    padding: 0;
     list-style: none;
-    padding: 0 20px ;
-    text-decoration: none;
-}
-
-.principal-header a{
-    text-decoration: none;
-}
-
-.profile{
+    overflow: hidden;
+    background-color: #fff;
     display: flex;
-    align-items: center;
-}
-
-.profile h4{
-    margin: 0;
-    padding-right: 10px;
-}
-
-.coins-amount{
-    background: #EDEDED;
-    border-radius: 20.5px;
-    margin: 0 0 5px;
+    flex-direction: column-reverse;
+    height: auto;
+    align-items: flex-end;
+  }
+  
+  .header li a {
+    display: block;
+    padding: 20px 20px;
+    text-decoration: none;
+  }
+  
+  .header li a:hover,
+  .header .menu-btn:hover {
+    background-color: #f4f4f4;
+  }
+  
+  /* menu */
+  
+  .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+  }
+  .data-container{
     display: flex;
-    align-items: center;
-    padding: 3px 10px;
-}
+    align-items: flex-end;
+    padding: 0 20px;
+    background-color: #40b7cd;
+    width: 100%;
+    flex-direction: column;
+  }
+  .nombre-data{
+    margin: 10px 0 0;
+  }
 
-.coins-amount div{
-    height: 20px;
-    width: 20px;
-    background-color: yellow;
-}
-
-.coins-amount p{
-    margin: 0;
-    padding: 3px 5px;
-}
+  
+  /* menu icon */
+  
+  .header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .header .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+  
+  /* menu btn */
+  
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  
+  
+  @media (min-width: 640px) {
+    .menu {
+        flex-direction: row;
+        position: initial;
+        width: auto;
+        clear: none;
+        float: right;
+        max-height: none;
+        align-items: center;
+    }
+    .data-container{
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        background-color: #fff;
+        width: 100%;
+        justify-content: flex-end;
+        flex-direction: row;
+      }
+     .nombre-data{
+        margin: 0 10px 0 0;
+      }
+    .header li {
+      float: left;
+      width: auto;
+    }
+    .header li a {
+      padding: 20px 15px;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+  }
+  
