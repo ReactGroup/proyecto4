@@ -2,25 +2,24 @@
 // import logo from './logo.svg';
 import './App.css';
 
+// Hooks, roots, etc
+import { Link, Route, useParams } from 'react-router-dom';
+import { useContext, useEffect, useState } from "react";
+
+import Creditos from './mas-creditos/Creditos'
+import Footer from './footer/Footer'
+import Historial from './historial/Historial'
+import Item from './item/item'
 // Componentes
 import Menu from './menu/Menu'
 import Productos from './productos/Productos'
-import Creditos from './mas-creditos/Creditos'
-import Historial from './historial/Historial'
-import Item from './item/item'
-import Footer from './footer/Footer'
-
-// Hooks, roots, etc
-import { Route, Link, useParams } from 'react-router-dom';
-import { useState, useEffect} from "react";
-
-
+import { coinContext } from './contexts';
 
 function App() {
 
-
+  const {setCoins} = useContext(coinContext)
   const [userData, setUserData] = useState([])
-
+  
   useEffect(() =>{
     let api = fetch("https://coding-challenge-api.aerolab.co/user/me",{
       headers: {
@@ -28,13 +27,13 @@ function App() {
         "Accept" : "application/json",
         "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGIwNTI3MjliNzc4MTAwMjA5YzVhYWIiLCJpYXQiOjE2MjIxNjgxNzh9.rvgBvfaLqxHZv-gU_GUyFz4c6hIybWT9rihd6MFTnno",
       }
-    });
-    api 
+    }) 
     .then((response) => {
       return response.json();
     })
     .then((results) => {
       setUserData(results);
+      setCoins(results.points);
     })
   },[]);
 
@@ -78,7 +77,7 @@ function App() {
         </Route>
         <Route exact path="/producto/:id" render={({match}) => (
           <Item 
-          copiaProducts={copiaProducts}
+            copiaProducts={copiaProducts}
             productsItems={productsItems.find(p => p._id === match.params.id)} />
         )} />
       <Footer />
