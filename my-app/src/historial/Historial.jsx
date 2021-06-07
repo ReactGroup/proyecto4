@@ -1,16 +1,27 @@
 import './historial.css';
-import React from 'react'
-import { useState, useEffect} from "react";
-import { Link } from 'react-router-dom';
-import coin from '../images/icons/coin.svg'
 
+import { useEffect, useState } from "react";
+
+import { Link } from 'react-router-dom';
+import Paginador from '../productos/Paginador'
+import React from 'react'
+import coin from '../images/icons/coin.svg'
 
 function Historial(){
 
     const [history, setHistory] = useState([])
     const [searchHistory, setSearchHistory] = useState(false);
+    // paginador;
+    const [pages, setPages] = useState(0);
+    const [current, setCurrent] = useState(0);
+    const size = 4;
 
+    useEffect(()=>{
+        setPages(Math.ceil(history.length/size));
+        setCurrent(0)
+    },[history.length])
 
+    // fin paginador;
     useEffect(() =>{
         let api = fetch("https://coding-challenge-api.aerolab.co/user/history",{
           headers: {
@@ -45,7 +56,7 @@ function Historial(){
                 </>
                 )}
                 {history.length > 0 && (
-                    history.slice(0, 10
+                    history.slice(current*size, current*size+size
                         ).map((history)=>
                             <div className="history-product">
                                 <img className="history-img" src={history.img.url} alt={history.name}/>
@@ -55,8 +66,14 @@ function Historial(){
                         )
                 )}
             </div>
+            <Paginador
+                pages={pages}
+                current={current}
+                handlePaginador={setCurrent} 
+            />
         </section>
     )
+
 }
 
 export default Historial;
