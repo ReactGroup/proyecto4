@@ -1,11 +1,8 @@
 import './productos.css';
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Results from './Results'
 import Filtros from './Filtros'
 import Paginador from './Paginador'
-
-// Hooks, roots, etc
-import { useState } from "react";
 
 //imagenes
 import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
@@ -15,13 +12,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function Productos({productsItems,categoryItems}){
 
     const [productList, setProductList] = useState([]);
-    const [pagination, setPagination] = useState(true); //page para dami
+    // const [pagination, setPagination] = useState(true);
+    const [pages, setPages] = useState(0);
+    const [current, setCurrent] = useState(0);
+    const size = 16;
 
-    const pageSlice = pagination ? productList.slice(16,32) : productList.slice(0,16);
+    useEffect(()=>{
+        if(productsItems.length > 0){
+            setPages(Math.ceil(productsItems.length/size))
+        }
+    },[productsItems.length])
 
-    // para mostrar productos de manera inicial
-    //let [incial, setInicial] = useState(productsItems);
-    //console.log(productsItems);
+
+    // const pageSlice = pagination ? productList.slice(16,32) : productList.slice(0,16);
 
     useEffect(()=>{
         if(productList.length === 0){setProductList(productsItems)}
@@ -45,13 +48,15 @@ function Productos({productsItems,categoryItems}){
                 </form>
             </div>
             <Results 
-                productList={productList}
-                pagination={pagination}
+                productList={productList.slice(current*size,current*size+size)}
             />
             <Paginador
-            productList={productList}
-            pagination={pagination}
-            setPagination={setPagination}
+                pages={pages}
+                current={current}
+                handlePaginador={handlePaginador}
+            //productList={productList}
+            //pagination={pagination}
+            //setPagination={setPagination}
             //numberPag={numberPag}
             />
         </div>
@@ -62,15 +67,13 @@ function Productos({productsItems,categoryItems}){
         setProductList(selected)
     }
 
-    //function numberPag(e){
-    //    setPagination(e)
-    //}
-
     function btnReset() {
         setProductList(productsItems);
     };
 
-    
+    function handlePaginador(newPage){
+        setCurrent(newPage);
+    };
 
 };
 
