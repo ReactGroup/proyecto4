@@ -61,25 +61,28 @@ function App() {
   let copiaProducts = [...productsItems]
 
   return (
+    
     <div className="App">
       <Menu userData={userData} />
-        <Route exact path="/">
-          <Productos
-            productsItems={productsItems}
-            categoryItems={categoryItems}
-          />
-        </Route>
-        <Route path="/mas-creditos">
-          <Creditos />
-        </Route>
-        <Route path="/historial">
-          <Historial />
-        </Route>
-        <Route path="/producto/:id" render={({match}) => (
-          <Item 
-            copiaProducts={copiaProducts}
-            productItem={productsItems.find(p => p._id === match.params.id)} />
-        )} />
+      <HashRouter>
+          <Route exact path="/">
+            <Productos
+              productsItems={productsItems}
+              categoryItems={categoryItems}
+            />
+          </Route>
+          <Route path="/mas-creditos">
+            <Creditos />
+          </Route>
+          <Route path="/historial">
+            <Historial />
+          </Route>
+          <Route path="/producto/:id" render={({match}) => (
+            <Item 
+              copiaProducts={copiaProducts}
+              productItem={productsItems.find(p => p._id === match.params.id)} />
+          )} />
+        </HashRouter>
       <Footer />
     </div>
   );

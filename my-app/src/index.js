@@ -10,10 +10,10 @@ import ScrollToTop from "./scrollToTop";
 ReactDOM.render(
   <React.StrictMode>
     <CoinProvider>
-      <HashRouter>
+
         <ScrollToTop />
           <App />
-      </HashRouter>
+
     </CoinProvider>
   </React.StrictMode>,
   document.getElementById('root')
