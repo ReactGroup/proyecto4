@@ -12,7 +12,7 @@ export default function Menu({userData}){
         <>
             <header className="header">
                 <div className="width-1440px" >
-                <Link to="/proyecto4">
+                <Link to="/">
                     <img src="" className="logo" alt="Logo"/>
                 </Link>
                 <input className="menu-btn" type="checkbox" id="menu-btn" />
