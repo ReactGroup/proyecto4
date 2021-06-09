@@ -3,7 +3,7 @@
 import './App.css';
 
 // Hooks, roots, etc
-import { Link, Route, useParams } from 'react-router-dom';
+import { Link, Route,HashRouter,Redirect, useParams,Switch } from 'react-router-dom';
 import { useContext, useEffect, useState } from "react";
 
 import Creditos from './mas-creditos/Creditos'
@@ -63,23 +63,26 @@ function App() {
   return (
     <div className="App">
       <Menu userData={userData} />
-        <Route exact path="/">
+      <Redirect from="/" to="/home" /> 
+      <Switch>
+        <Route exact path="/home">
           <Productos
             productsItems={productsItems}
             categoryItems={categoryItems}
           />
         </Route>
-        <Route exact path="/mas-creditos">
+        <Route path="/mas-creditos">
           <Creditos />
         </Route>
-        <Route exact path="/historial">
+        <Route path="/historial">
           <Historial />
         </Route>
-        <Route exact path="/producto/:id" render={({match}) => (
+        <Route path="/producto/:id" render={({match}) => (
           <Item 
             copiaProducts={copiaProducts}
             productItem={productsItems.find(p => p._id === match.params.id)} />
         )} />
+        </Switch>
       <Footer />
     </div>
   );
