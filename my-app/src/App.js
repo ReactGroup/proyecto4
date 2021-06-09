@@ -65,7 +65,7 @@ function App() {
       <Menu userData={userData} />
       <Redirect from="/" to="/home" /> 
       <Switch>
-        <Route exact path="/home">
+        <Route path="/">
           <Productos
             productsItems={productsItems}
             categoryItems={categoryItems}
