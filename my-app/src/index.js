@@ -5,7 +5,7 @@ import {BrowserRouter, HashRouter} from 'react-router-dom'
 import CoinProvider from './coinProvider/CoinProvider'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ScrollToTop from "./scrollToTop";
+
 
 ReactDOM.render(
   <React.StrictMode>

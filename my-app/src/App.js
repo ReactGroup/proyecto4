@@ -14,6 +14,7 @@ import Item from './item/item'
 import Menu from './menu/Menu'
 import Productos from './productos/Productos'
 import { coinContext } from './contexts';
+import ScrollToTop from "./scrollToTop";
 
 function App() {
 
