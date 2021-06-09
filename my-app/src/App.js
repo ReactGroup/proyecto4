@@ -64,6 +64,7 @@ function App() {
     
     <div className="App">
       <HashRouter>
+      <ScrollToTop />
       <Menu userData={userData} />
           <Route exact path="/">
             <Productos

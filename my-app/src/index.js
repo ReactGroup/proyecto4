@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <CoinProvider>
 
-        <ScrollToTop />
+      
           <App />
 
     </CoinProvider>
