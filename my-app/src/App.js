@@ -63,9 +63,9 @@ function App() {
   return (
     <div className="App">
       <Menu userData={userData} />
-      <Redirect from="/proyecto4" to="/" /> 
+      {/* <Redirect from="/proyecto4" to="/" />  */}
       <Switch>
-        <Route path="proyecto4/">
+        <Route path="/proyecto4">
           <Productos
             productsItems={productsItems}
             categoryItems={categoryItems}
