@@ -63,7 +63,6 @@ function App() {
   return (
     <div className="App">
       <Menu userData={userData} />
-      <Switch>
         <Route exact path="/">
           <Productos
             productsItems={productsItems}
@@ -81,7 +80,6 @@ function App() {
             copiaProducts={copiaProducts}
             productItem={productsItems.find(p => p._id === match.params.id)} />
         )} />
-        </Switch>
       <Footer />
     </div>
   );
