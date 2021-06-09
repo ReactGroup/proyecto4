@@ -1,6 +1,6 @@
 import './item.css';
 
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, Route } from 'react-router-dom';
 import { useContext, useEffect, useState } from "react";
 
 import ProductCard from '../productos/ProductCard'
@@ -67,7 +67,14 @@ function Item({ productItem,copiaProducts,}){
                                 <img src="" alt="Buy"/>
                                 </button>
                             ) : (
-                                <h4>Te faltan puntos</h4>
+                                <>
+
+                                    <h4>Te faltan puntos</h4>
+                                    <Link to="/mas-creditos">
+                                    <p>Haciendo click aquí, podrás conseguir más</p>
+                                    </Link>
+
+                               </>
                             )
 
                             }                       
