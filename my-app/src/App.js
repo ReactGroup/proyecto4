@@ -63,8 +63,8 @@ function App() {
   return (
     
     <div className="App">
-      <Menu userData={userData} />
       <HashRouter>
+      <Menu userData={userData} />
           <Route exact path="/">
             <Productos
               productsItems={productsItems}
