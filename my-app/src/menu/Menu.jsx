@@ -4,6 +4,7 @@ import menu from './menu.css'
 
 //imagenes
 import coin from '../images/icons/coin.svg';
+import home from '../images/icons/buy-blue.svg'
 import {coinContext} from '../contexts'
 
 
@@ -14,11 +15,14 @@ export default function Menu({userData}){
             <header className="header">
                 <div className="width-1440px" >
                 <Link to="/">
-                    <img src="" className="logo" alt="Logo"/>
+                    <img src={home} className="logo" alt="Logo"/>
                 </Link>
                 <input className="menu-btn" type="checkbox" id="menu-btn" />
                 <label className="menu-icon" for="menu-btn"><span class="navicon"></span></label>
                 <ul className="menu">
+                    <li>
+                        <Link style={{ textDecoration: 'none', color:'black' }} to="/">Productos</Link>
+                    </li> 
                     <li>
                         <Link style={{ textDecoration: 'none', color:'black' }} to="/mas-creditos">Más Creditos</Link>
                     </li> 
