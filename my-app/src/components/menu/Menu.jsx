@@ -3,9 +3,9 @@ import React, {useContext} from 'react'
 import menu from './menu.css'
 
 //imagenes
-import coin from '../images/icons/coin.svg';
-import home from '../images/icons/buy-blue.svg'
-import {coinContext} from '../contexts'
+import coin from '../../images/icons/coin.svg';
+import home from '../../images/icons/buy-blue.svg'
+import {coinContext} from '../../contexts'
 
 
 export default function Menu({userData}){

@@ -2,7 +2,7 @@ import './productos.css';
 import React, { useState, useEffect } from 'react'
 import Results from './Results'
 import Filtros from './Filtros'
-import Paginador from './Paginador'
+import Paginador from '../Paginador'
 
 //imagenes
 import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";

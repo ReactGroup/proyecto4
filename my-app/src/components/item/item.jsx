@@ -6,9 +6,9 @@ import { useContext, useState } from "react";
 import ProductCard from '../productos/ProductCard'
 // Imágenes
 import './item.css';
-import coin from '../images/icons/coin.svg'
+import coin from '../../images/icons/coin.svg'
 // Context
-import { coinContext } from '../contexts';
+import { coinContext } from '../../contexts';
 
 function Item({ productItem,copiaProducts,}){
     const [home, setHome] = useState(false)    

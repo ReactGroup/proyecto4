@@ -3,9 +3,9 @@ import './historial.css';
 import { useEffect, useState } from "react";
 
 import { Link } from 'react-router-dom';
-import Paginador from '../productos/Paginador'
+import Paginador from '../Paginador'
 import React from 'react'
-import coin from '../images/icons/coin.svg'
+import coin from '../../images/icons/coin.svg'
 
 function Historial(){
 

@@ -1,7 +1,7 @@
 import './productos.css';
 import React from 'react'
 //imagenes
-import coin from '../images/icons/coin.svg'
+import coin from '../../images/icons/coin.svg'
 
 
 function ProductCard(product){

@@ -3,9 +3,9 @@ import './creditos.css';
 import React from 'react';
 import { useContext, useState } from "react";
 import { Redirect } from 'react-router';
-import { coinContext } from '../contexts';
+import { coinContext } from '../../contexts';
 //imagenes
-import coin from '../images/icons/coin.svg'
+import coin from '../../images/icons/coin.svg'
 
 
 function Creditos(){

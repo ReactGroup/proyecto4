@@ -3,16 +3,16 @@
 import './App.css';
 
 // Hooks, roots, etc
-import { Link, Route,HashRouter,Redirect, useParams,Switch } from 'react-router-dom';
+import { Route,HashRouter } from 'react-router-dom';
 import { useContext, useEffect, useState } from "react";
 
-import Creditos from './mas-creditos/Creditos'
-import Footer from './footer/Footer'
-import Historial from './historial/Historial'
-import Item from './item/item'
+import Creditos from './components/mas-creditos/Creditos'
+import Footer from './components/footer/Footer'
+import Historial from './components/historial/Historial'
+import Item from './components/item/item'
 // Componentes
-import Menu from './menu/Menu'
-import Productos from './productos/Productos'
+import Menu from './components/menu/Menu'
+import Productos from './components/productos/Productos'
 import { coinContext } from './contexts';
 import ScrollToTop from "./scrollToTop";
 
