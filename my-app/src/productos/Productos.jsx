@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function Productos({productsItems,categoryItems}){
 
     const [productList, setProductList] = useState([]);
-    // const [pagination, setPagination] = useState(true);
+    // hooks para paginado;
     const [pages, setPages] = useState(0);
     const [current, setCurrent] = useState(0);
     const size = 16;
@@ -20,11 +20,8 @@ function Productos({productsItems,categoryItems}){
     useEffect(()=>{
         setPages(Math.ceil(productList.length/size));
         setCurrent(0)
-        console.log("text random")
     },[productList.length])
 
-
-    // const pageSlice = pagination ? productList.slice(16,32) : productList.slice(0,16);
 
     useEffect(()=>{
         if(productList.length === 0){setProductList(productsItems)}
@@ -34,7 +31,6 @@ function Productos({productsItems,categoryItems}){
         <div className="productos">
             <div className="portada"></div>
             <div className="filter-container">
-               {/* filtros */}
                <form className="filters flex">
                     <Filtros
                     productList={productList}
@@ -53,11 +49,7 @@ function Productos({productsItems,categoryItems}){
             <Paginador
                 pages={pages}
                 current={current}
-                handlePaginador={handlePaginador}
-            //productList={productList}
-            //pagination={pagination}
-            //setPagination={setPagination}
-            //numberPag={numberPag}
+                handlePaginador={setCurrent}
             />
         </div>
     );
@@ -69,10 +61,6 @@ function Productos({productsItems,categoryItems}){
 
     function btnReset() {
         setProductList(productsItems);
-    };
-
-    function handlePaginador(newPage){
-        setCurrent(newPage);
     };
 
 };

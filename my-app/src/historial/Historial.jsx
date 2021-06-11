@@ -21,15 +21,12 @@ function Historial(){
         setCurrent(0)
     },[history.length])
 
-    // fin paginador;
     useEffect(() =>{
         let api = fetch("https://coding-challenge-api.aerolab.co/user/history",{
           headers: {
             "Content-type": "application/json",
             "Accept" : "application/json",
              "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGIwNTI3MjliNzc4MTAwMjA5YzVhYWIiLCJpYXQiOjE2MjIxNjgxNzh9.rvgBvfaLqxHZv-gU_GUyFz4c6hIybWT9rihd6MFTnno",
-            // prueba con el token del proyecto
-            //"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWRkOWU5OTQ0NGZlNDAwNmRhOTkyNGQiLCJpYXQiOjE1OTE1ODIzNjF9.-f40dyUIGFsBSB_PTeBGdSLI58I21-QBJNi9wkODcKk",
           }
         });
         api 
@@ -47,6 +44,12 @@ function Historial(){
     return(
         <section className="historial">
             <div className="historial-container">
+                <div className="pag-state">
+                    <p>Página 
+                    <span> {current + 1}</span> de 
+                    <span> {pages}</span>
+                    </p>   
+                </div>
                 { history.length === 0 &&  (
                 <>
                 <h4 className="title-history">¿Aún no aprovechaste tus puntos?</h4>
@@ -56,9 +59,9 @@ function Historial(){
                 </>
                 )}
                 {history.length > 0 && (
-                    history.slice(current*size, current*size+size
-                        ).map((history)=>
-                            <div className="history-product">
+                    history.slice(current*size, current*size+size)
+                    .map((history)=>
+                            <div className="history-product" key={history._id}>
                                 <img className="history-img" src={history.img.url} alt={history.name}/>
                                 <h3>{history.name}</h3>
                                 <p><img src={coin} alt="Coin"/> {history.cost}</p>

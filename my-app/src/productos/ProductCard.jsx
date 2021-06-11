@@ -1,5 +1,6 @@
 import './productos.css';
 import React from 'react'
+//imagenes
 import coin from '../images/icons/coin.svg'
 
 

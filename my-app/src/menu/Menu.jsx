@@ -1,10 +1,11 @@
-import { Link, Route, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import React, {useContext} from 'react'
+import menu from './menu.css'
 
 //imagenes
 import coin from '../images/icons/coin.svg';
 import {coinContext} from '../contexts'
-import menu from './menu.css'
+
 
 export default function Menu({userData}){
     const {coins} = useContext(coinContext);

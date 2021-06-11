@@ -5,7 +5,7 @@
 }
 
 .historial-container{
-    padding: 5em;
+    padding: 5em 2em;
     max-width: 1280px;
     margin: 0 auto;
     display: flex;
@@ -31,6 +31,11 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.pag-state{
+    color: grey;
+    font-weight: bold;
+}
+
 
 /* ---- TEXTO DESCRIPTIVO ----- */
 .history-product{
@@ -42,11 +47,11 @@
     border-radius: 10px;
     width: 100%;
     max-width: 500px;
+    background-color: white;
 }
 
 .history-img{
     height: 50px;
-    width: 50px;
     margin-right: 20px;
 }
 
@@ -64,4 +69,7 @@
     display: flex;
     align-items: center;
     margin: 0 0 0 auto;
+}
+
+@media (min-width: 640px) {
 }

@@ -1,33 +1,19 @@
-import './item.css';
-
-import { Link, Redirect, Route } from 'react-router-dom';
-import { useContext, useEffect, useState } from "react";
-
-import ProductCard from '../productos/ProductCard'
 import React from 'react'
+import { Link, Redirect } from 'react-router-dom';
+import { useContext, useState } from "react";
+
+// Componentes
+import ProductCard from '../productos/ProductCard'
+// Imágenes
+import './item.css';
 import coin from '../images/icons/coin.svg'
+// Context
 import { coinContext } from '../contexts';
 
 function Item({ productItem,copiaProducts,}){
     const [home, setHome] = useState(false)    
     const {coins, setCoins} = useContext(coinContext)
     const handleRedeem = (productId, cost)=>{
-        console.log(productId, cost);
-        //llamar a la api y pasarle el productId
-    //     const postCost = async () => {
-    //         const response = await fetch("https://coding-challenge-api.aerolab.co/redeem",{
-    //         method: "POST",   
-    //         headers: {
-    //                      "Content-Type": "application/json",
-    //                      "Accept" : "application/json",
-    //                      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGIwNTI3MjliNzc4MTAwMjA5YzVhYWIiLCJpYXQiOjE2MjIxNjgxNzh9.rvgBvfaLqxHZv-gU_GUyFz4c6hIybWT9rihd6MFTnno",
-    //                  },
-    //                  body: JSON.stringify({
-    //                     "productId": productId
-    //                  })
-    //              })
-    //              response.json(); 
-    //   }
         fetch("https://coding-challenge-api.aerolab.co/redeem",
             {
                 method: "POST",   
@@ -40,15 +26,11 @@ function Item({ productItem,copiaProducts,}){
                             "productId": productId
                         })
             }
-        ).then(response=>{ //si entro aca, significa que se completo la peticion correctamente
-            // si nos reponde con 200 entonces restamos el costo a las monedas.
+        ).then(response=>{ 
             setCoins(coins - cost);
             alert("Exito al comprar"); 
             setHome(true);   
         })
-        // ).catch(error=>{
-        //     //Ocurrio un error        
-        // })
     }
     return(
         <>
@@ -63,22 +45,19 @@ function Item({ productItem,copiaProducts,}){
                         <h5>Valor: <img src={coin} alt="coin"/><span>{productItem.cost}</span></h5>
                         <div> 
                             { coins >= productItem.cost ? (
-                                <button onClick={()=>handleRedeem(productItem._id, productItem.cost)}>Canjear
-                                <img src="" alt="Buy"/>
+                                <button className="btn-canjear" onClick={()=>handleRedeem(productItem._id, productItem.cost)}>Canjear
                                 </button>
                             ) : (
                                 <>
 
                                     <h4>Te faltan puntos</h4>
-                                    <Link to="/mas-creditos">
-                                    <p>Haciendo click aquí, podrás conseguir más</p>
+                                    <Link to="/mas-creditos" style={{ textDecoration: 'none' }}>
+                                    <p className="link-to-credit">Haciendo click aquí, podrás conseguir más</p>
                                     </Link>
 
                                </>
                             )
-
                             }                       
-                            
                         </div>
                     </div>
                 </div>

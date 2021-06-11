@@ -39,9 +39,19 @@
 }
 
 .info-container h4{
-    color: #A3A3A3;
+    color: #1b6c7a;
     font-size: 18px;
-    margin: 0;
+    margin: 2em 0 0 ;
+}
+
+.link-to-credit{
+    font-style: italic;
+    color: #40b7cd;
+    margin: 0.5em 0 0;
+}
+
+.link-to-credit{
+    color: #5f40cd;
 }
 
 .info-container h5{
@@ -62,6 +72,20 @@
  font-size: 14px;
  padding: 10px 20px ;
 }
+
+.btn-canjear{
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    background-color:#40b7cd;
+    font-weight: bold;
+}
+
+.btn-canjear:hover{
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
 
 
 /* ---- OTROS ----- */
